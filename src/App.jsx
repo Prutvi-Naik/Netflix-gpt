@@ -1,10 +1,22 @@
+import Login from "./Components/Login"
+import { createBrowserRouter, RouterProvider, Outlet,  } from "react-router";
+
 
 function App() {
-  
 
+  const appRouter = createBrowserRouter([
+     {
+        path: "/",
+        element: <Login />,
+      },
+       {
+        path: "/browse",
+        element: <Login />,
+      },
+  ])
   return (
     <>
-    <div className="bg-red-300">hello world</div>
+     <RouterProvider router={appRouter}/>
     </>
   )
 }
