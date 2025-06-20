@@ -1,39 +1,44 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
 import { validate } from "../Utils/Validate";
+import {googleCheck} from "../Utils/firebase"
 
 const Login = () => {
+  
   const [isSignIn, setIsSignIn] = useState(true);
-  const [errorMsg ,setErrorMsg] = useState(null)
+  const [errorMsg, setErrorMsg] = useState(null);
 
   const changeSignIn = () => {
     setIsSignIn(!isSignIn);
   };
 
+  const email = useRef();
+  const password = useRef();
 
-  const email = useRef()
-  const password = useRef()
+  const checkUserInfo = (e) => {
+    e.preventDefault();
+    console.log(email.current.value);
+    console.log(password.current.value);
+    const massage = validate(email.current.value, password.current.value);
+    console.log(massage);
+    setErrorMsg(massage);
+  };
 
 
-  const checkUserInfo = (e)=>{
-    e.preventDefault()
-    console.log(email.current.value)
-    console.log(password.current.value)
-  const massage =  validate(email.current.value,password.current.value)
-  console.log(massage)
-  setErrorMsg(massage)
 
-  }
   return (
     <div className="">
       <Header />
       <div className="flex flex-col items-center ">
         <form className="absolute top-[25%]  bg-gray-900/80 w-4/12  text-white py-8 px-6 rounded-lg">
+          <p className="text-right capitalize text-red-500 italic">
+            for now use google for login!
+          </p>
           <h1 className="text-3xl font-bold capitalize">
             {isSignIn ? "Sign in" : "sign up"}
           </h1>
           {!isSignIn && (
-            <input 
+            <input
               className="bg-gray-700 w-full mt-6 py-2 px-6 rounded-lg"
               type="text"
               placeholder="Full Name"
@@ -46,15 +51,16 @@ const Login = () => {
             placeholder="Email Address"
           />
           <input
-          ref={password}
+            ref={password}
             type="password"
             placeholder="Password"
             className="bg-gray-700 w-full mt-6 py-2 px-6 rounded-lg"
           />
           <p className="text-red-700 py-3 px-2 font-bold">{errorMsg}</p>
-          <button 
-          onClick={checkUserInfo}
-          className="bg-red-800 w-full mt-6 py-2 px-6 rounded-lg capitalize cursor-pointer">
+          <button
+            onClick={checkUserInfo}
+            className="bg-red-800 w-full mt-6 py-2 px-6 rounded-lg capitalize cursor-pointer"
+          >
             {!isSignIn ? "Sign up" : "Sign In"}
           </button>
 
@@ -63,6 +69,19 @@ const Login = () => {
               ? "New to Netflix?Sign up now."
               : "Already have account. Sign In Now"}
           </p>
+          <div className="py-4">
+            <button className="flex items-center justify-center gap-2 bg-white border border-gray-300 rounded-md px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+            id="google-login-btn"
+            onClick={googleCheck}
+            >
+              <img
+                src="https://www.google.com/favicon.ico"
+                alt="Google logo"
+                className="w-5 h-5"
+              />
+              <span>Continue with Google</span>
+            </button>
+          </div>
         </form>
       </div>
       <img

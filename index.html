@@ -8,5 +8,28 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBhyyZ29zbTx6lfaDMwoKCiewFCp6TDGEw",
+    authDomain: "netflixgpt2-666c1.firebaseapp.com",
+    projectId: "netflixgpt2-666c1",
+    storageBucket: "netflixgpt2-666c1.firebasestorage.app",
+    messagingSenderId: "923196705316",
+    appId: "1:923196705316:web:6a2a6d7a2f91a888db26b1",
+    measurementId: "G-2BPVM165YS"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
   </body>
 </html>

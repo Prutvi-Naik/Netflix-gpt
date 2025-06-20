@@ -1,6 +1,14 @@
 # Netflix -GPT
  - setup file structure
  - configured tailwindcss
+ - Login page 
+ - Header page 
+ - signIn/signUp page
+ - Form validation 
+    -Regex 
+ - Validation using Google .
+   - not working Email/Password on Firebase
+
 
 # Features
  - Login/Sign up
