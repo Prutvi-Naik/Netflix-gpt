@@ -1,7 +1,11 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
 import { validate } from "../Utils/Validate";
-import {googleCheck} from "../Utils/firebase"
+import { auth ,provider} from "../Utils/firebase";
+import { signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth/web-extension";
+
+
 
 const Login = () => {
   
@@ -10,6 +14,7 @@ const Login = () => {
 
   const changeSignIn = () => {
     setIsSignIn(!isSignIn);
+    
   };
 
   const email = useRef();
@@ -24,7 +29,31 @@ const Login = () => {
     setErrorMsg(massage);
   };
 
+const googleCheck =(e)=>{
+  
+  e.preventDefault()
+  signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const user = result.user;
+    console.log(credential,user)
+    alert("User create")
+    
+    window.location.href="/browse"
+    
 
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode,errorMessage)
+    alert("failed to create user")
+  })
+  
+  }
+
+  
 
   return (
     <div className="">

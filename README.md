@@ -8,7 +8,10 @@
     -Regex 
  - Validation using Google .
    - not working Email/Password on Firebase
-
+ - create redux store 
+ - Add log out 
+ - fix redux store issue
+ 
 
 # Features
  - Login/Sign up
