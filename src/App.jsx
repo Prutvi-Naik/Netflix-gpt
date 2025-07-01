@@ -14,7 +14,7 @@ function App() {
       },
        {
         path: "/browse",
-        element: <Browse/>,
+        element: <Browse />,
       },
   ])
 

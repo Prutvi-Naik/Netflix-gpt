@@ -18,6 +18,15 @@
  - update store and trailer video data
  - embedeb youtube video dynamicaly as per trailer key 
  - adjust in the page for looking good
+ - understand proxy issue and work with vpn 
+ - create multiple cards to show movies 
+ - add custom hooks to getting movies 
+ - use hooks data on card to retrive 
+    1. NowPlaying 
+    2. TopRated
+    3. Upcomming 
+    4. Popular
+ 
  
  
 

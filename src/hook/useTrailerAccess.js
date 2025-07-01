@@ -25,7 +25,9 @@ const useTrailerAccess = (id) => {
       const trailerData = jsonData.results.filter(
         (video) => video.type == "Trailer"
       );
+      
       const trailer = trailerData.length ? trailerData[0] : jsonData.results[0];
+      console.log(trailer)
       dispatch(addTrailerVideo(trailer))
 
       return jsonData; // Optional: return the data if you need to use it elsewhere
